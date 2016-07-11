@@ -1,1 +1,3 @@
-# MQTT_Audio_Amplifier-
+# MQTT Audio Amplifier
+
+Зонный усилитель на 5 зон управляемый через Ethernet по протоколу MQTT на базе усилителя D класса на микросхеме PAM8610.
