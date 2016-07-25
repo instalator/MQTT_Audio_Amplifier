@@ -4,8 +4,6 @@
 
 ###Zone_(x)
 
-###Mute_(x)
-
 ###Vol_(x)
 
 ###Fade
@@ -14,5 +12,7 @@
 
 ## Changelog
 
+#### 0.1.0
+* (instalator) beta (25.07.2016)
 #### 0.0.1
 * (instalator) initial (22.07.2016)
