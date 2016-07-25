@@ -18,11 +18,26 @@ EthernetClient ethClient;
 PubSubClient client(server, 1883, callback, ethClient);
 #define id_connect "myhome-Audio_Amplifier"
 
+#define PIN_AMP_1 17
+#define PIN_AMP_2 16
+#define PIN_AMP_3 15
+#define PIN_AMP_4 14
+#define PIN_AMP_5 20
+
+#define PIN_VOL_1 5
+#define PIN_VOL_2 3
+#define PIN_VOL_3 9
+#define PIN_VOL_4 6
+#define PIN_VOL_5 10
+
+#define PIN_SHTD 2
+#define PIN_FADE 4
+
 ///////////////Объявляем порты ввода-вывода
-const int start_DI_pin []= {2,3,4,5}; // Порты Ввода
+const int start_DI_pin []= {0}; // Порты Ввода
 int n_DI_pin = sizeof(start_DI_pin) / sizeof(start_DI_pin[0])-1; //Вычисляем длинну массива
 
-const int start_DO_pin []= {6}; //Порты Вывода
+const int start_DO_pin []= {PIN_AMP_1, PIN_AMP_2, PIN_AMP_3, PIN_AMP_4, PIN_AMP_5, PIN_VOL_1, PIN_VOL_2, PIN_VOL_3, PIN_VOL_4, PIN_VOL_5, PIN_SHTD, PIN_FADE}; //Порты Вывода
 int n_DO_pin = sizeof(start_DO_pin) / sizeof(start_DO_pin[0])-1; //Вычисляем длинну массива
 
 void PubTopic (){
