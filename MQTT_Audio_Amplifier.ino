@@ -17,7 +17,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
 EthernetClient ethClient;
 PubSubClient client(server, 1883, callback, ethClient);
 #define id_connect "myhome-Audio_Amplifier"
-#define Prefix_subscribe "myhome/Audio_Amplifier/"
 
 ///////////////Объявляем порты ввода-вывода
 const int start_DI_pin []= {2,3,4,5}; // Порты Ввода
@@ -27,23 +26,18 @@ const int start_DO_pin []= {6}; //Порты Вывода
 int n_DO_pin = sizeof(start_DO_pin) / sizeof(start_DO_pin[0])-1; //Вычисляем длинну массива
 
 void PubTopic (){
-    client.publish("myhome/Audio_Amplifier/zone_1", false);
-    client.publish("myhome/Audio_Amplifier/zone_2", false);
-    client.publish("myhome/Audio_Amplifier/zone_3", false);
-    client.publish("myhome/Audio_Amplifier/zone_4", false);
-    client.publish("myhome/Audio_Amplifier/zone_5", false);
-    client.publish("myhome/Audio_Amplifier/vol_1", false);
-    client.publish("myhome/Audio_Amplifier/vol_2", false);
-    client.publish("myhome/Audio_Amplifier/vol_3", false);
-    client.publish("myhome/Audio_Amplifier/vol_4", false);
-    client.publish("myhome/Audio_Amplifier/vol_5", false);
-    client.publish("myhome/Audio_Amplifier/mute_1", false);
-    client.publish("myhome/Audio_Amplifier/mute_2", false);
-    client.publish("myhome/Audio_Amplifier/mute_3", false);
-    client.publish("myhome/Audio_Amplifier/mute_4", false);
-    client.publish("myhome/Audio_Amplifier/mute_5", false);
-    client.publish("myhome/Audio_Amplifier/fade", false);
-    client.publish("myhome/Audio_Amplifier/shtd", false);
+    client.publish("myhome/Audio_Amplifier/zone_1", "false");
+    client.publish("myhome/Audio_Amplifier/zone_2", "false");
+    client.publish("myhome/Audio_Amplifier/zone_3", "false");
+    client.publish("myhome/Audio_Amplifier/zone_4", "false");
+    client.publish("myhome/Audio_Amplifier/zone_5", "false");
+    client.publish("myhome/Audio_Amplifier/vol_1", "10");
+    client.publish("myhome/Audio_Amplifier/vol_2", "10");
+    client.publish("myhome/Audio_Amplifier/vol_3", "10");
+    client.publish("myhome/Audio_Amplifier/vol_4", "10");
+    client.publish("myhome/Audio_Amplifier/vol_5", "10");
+    client.publish("myhome/Audio_Amplifier/fade", "false");
+    client.publish("myhome/Audio_Amplifier/shtd", "false");
   }
 ////////////////////////////////////////////////////////////////////////////
 void setup() {
