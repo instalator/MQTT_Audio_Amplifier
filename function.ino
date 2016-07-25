@@ -11,6 +11,11 @@ String InvertOut(int pin){
 }
  
 void callback_iobroker(String strTopic, String strPayload) {
+    if (strTopic == "myhome/Audio_Amplifier/save") {
+        if (strPayload == "true") {
+            Save();
+        }
+    }
   if (strTopic == "myhome/Audio_Amplifier/zone_1") {
         if (strPayload == "true") {
             digitalWrite(PIN_AMP_1, true);
