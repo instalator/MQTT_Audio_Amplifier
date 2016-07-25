@@ -13,10 +13,10 @@ String InvertOut(int pin){
 void callback_iobroker(String strTopic, String strPayload) {
   if (strTopic == "myhome/Audio_Amplifier/zone_1") {
         if (strPayload == "true") {
-            digitalWrite(17, true);
+            digitalWrite(PIN_AMP_1, true);
             client.publish("myhome/Audio_Amplifier/zone_1", "true");
         } else {
-            digitalWrite(17, false);
+            digitalWrite(PIN_AMP_1, false);
             client.publish("myhome/Audio_Amplifier/zone_1", "false");
         }
   }
