@@ -39,6 +39,8 @@ byte vol_2 = EEPROM.read(2);
 byte vol_3 = EEPROM.read(3);
 byte vol_4 = EEPROM.read(4);
 byte vol_5 = EEPROM.read(5);
+byte shtd = EEPROM.read(6);
+byte fade = EEPROM.read(7);
 ///////////////Объявляем порты ввода-вывода
 const int start_DI_pin []= {0}; // Порты Ввода
 int n_DI_pin = sizeof(start_DI_pin) / sizeof(start_DI_pin[0])-1; //Вычисляем длинну массива
@@ -64,12 +66,14 @@ void PubTopic (){
   }
 ////////////////////////////////////////////////////////////////////////////
 void setup() {
-  if (vol_1 == 255 && vol_2 == 255 && vol_3 == 255 && vol_4 == 255 && vol_5 == 255){
+  if (vol_1 == 255 && vol_2 == 255 && vol_3 == 255 && vol_4 == 255 && vol_5 == 255 && shtd == 255 && fade == 255){
       vol_1 = 10;
       vol_2 = 10;
       vol_3 = 10;
       vol_4 = 10;
       vol_5 = 10;
+      shtd = 1;
+      fade = 0;
   }
     //Объявляем порты Digital inputs/outputs
   for(int i=0 ;i<=n_DI_pin; i++) { pinMode (start_DI_pin [i], INPUT); }
