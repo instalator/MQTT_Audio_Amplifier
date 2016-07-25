@@ -33,11 +33,7 @@ PubSubClient client(server, 1883, callback, ethClient);
 
 #define PIN_SHTD 2
 #define PIN_FADE 4
-EEPROM.write(1, 0);
-EEPROM.write(2, 0);
-EEPROM.write(3, 0);
-EEPROM.write(4, 0);
-EEPROM.write(5, 0);
+
 byte vol_1 = EEPROM.read(1);
 byte vol_2 = EEPROM.read(2);
 byte vol_3 = EEPROM.read(3);
@@ -51,6 +47,7 @@ const int start_DO_pin []= {PIN_AMP_1, PIN_AMP_2, PIN_AMP_3, PIN_AMP_4, PIN_AMP_
 int n_DO_pin = sizeof(start_DO_pin) / sizeof(start_DO_pin[0])-1; //Вычисляем длинну массива
 
 void PubTopic (){
+    client.publish("myhome/Audio_Amplifier/save", "false");
     client.publish("myhome/Audio_Amplifier/zone_1", "false");
     client.publish("myhome/Audio_Amplifier/zone_2", "false");
     client.publish("myhome/Audio_Amplifier/zone_3", "false");
@@ -67,6 +64,13 @@ void PubTopic (){
   }
 ////////////////////////////////////////////////////////////////////////////
 void setup() {
+  if (vol_1 == 255 && vol_2 == 255 && vol_3 == 255 && vol_4 == 255 && vol_5 == 255){
+      vol_1 = 10;
+      vol_2 = 10;
+      vol_3 = 10;
+      vol_4 = 10;
+      vol_5 = 10;
+  }
     //Объявляем порты Digital inputs/outputs
   for(int i=0 ;i<=n_DI_pin; i++) { pinMode (start_DI_pin [i], INPUT); }
   for(int i=0 ;i<=n_DO_pin; i++) { pinMode (start_DO_pin [i], OUTPUT); }
@@ -78,6 +82,13 @@ void setup() {
   }
 }
 /////////////////////////////////////////////////////////////////////////
+void save(){
+    EEPROM.write(1, vol_1);
+    EEPROM.write(2, vol_2);
+    EEPROM.write(3, vol_3);
+    EEPROM.write(4, vol_4);
+    EEPROM.write(5, vol_5);
+}
 void loop() {
   client.loop();
 
