@@ -1,3 +1,4 @@
+#include <EEPROM.h>
 #include <SPI.h>           // Ethernet shield
 #include <Ethernet.h>      // Ethernet shield
 #include <PubSubClient.h>  // MQTT 
@@ -32,7 +33,16 @@ PubSubClient client(server, 1883, callback, ethClient);
 
 #define PIN_SHTD 2
 #define PIN_FADE 4
-
+EEPROM.write(1, 0);
+EEPROM.write(2, 0);
+EEPROM.write(3, 0);
+EEPROM.write(4, 0);
+EEPROM.write(5, 0);
+byte vol_1 = EEPROM.read(1);
+byte vol_2 = EEPROM.read(2);
+byte vol_3 = EEPROM.read(3);
+byte vol_4 = EEPROM.read(4);
+byte vol_5 = EEPROM.read(5);
 ///////////////Объявляем порты ввода-вывода
 const int start_DI_pin []= {0}; // Порты Ввода
 int n_DI_pin = sizeof(start_DI_pin) / sizeof(start_DI_pin[0])-1; //Вычисляем длинну массива
@@ -53,6 +63,7 @@ void PubTopic (){
     client.publish("myhome/Audio_Amplifier/vol_5", "10");
     client.publish("myhome/Audio_Amplifier/fade", "false");
     client.publish("myhome/Audio_Amplifier/shtd", "false");
+    client.publish("myhome/Audio_Amplifier/connection", "true");
   }
 ////////////////////////////////////////////////////////////////////////////
 void setup() {
