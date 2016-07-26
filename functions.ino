@@ -27,34 +27,6 @@ void Save(){
 */
 
 void callback_iobroker(String strTopic, String strPayload) {
-  if (strTopic == "myhome/Audio_Amplifier/save") {
-    if (strPayload == "true") {
-      Save();
-      client.publish("myhome/Audio_Amplifier/save", "false");
-    }
-  }
-  if (strTopic == "myhome/Audio_Amplifier/shtd") {
-    if (strPayload == "true") {
-      digitalWrite(PIN_SHTD, true);
-      shtd = 1;
-      client.publish("myhome/Audio_Amplifier/shtd", "true");
-    } else {
-      digitalWrite(PIN_SHTD, false);
-      shtd = 0;
-      client.publish("myhome/Audio_Amplifier/shtd", "false");
-    }
-  }
-  if (strTopic == "myhome/Audio_Amplifier/fade") {
-    if (strPayload == "true") {
-      digitalWrite(PIN_FADE, true);
-      fade = 1;
-      client.publish("myhome/Audio_Amplifier/fade", "true");
-    } else {
-      digitalWrite(PIN_FADE, false);
-      fade = 0;
-      client.publish("myhome/Audio_Amplifier/fade", "false");
-    }
-  }
   if (strTopic == "myhome/Audio_Amplifier/zone_1") {
     if (strPayload == "true") {
       digitalWrite(PIN_AMP_1, true);
@@ -114,6 +86,7 @@ void callback_iobroker(String strTopic, String strPayload) {
       client.publish("myhome/Audio_Amplifier/vol_1", ToChar(strPayload));
     }
   }
+  //////////////////////////
   else if (strTopic == "myhome/Audio_Amplifier/vol_2") {
     int_Payload = strPayload.toInt();
     if (int_Payload >= 0 && int_Payload <= 255) {
@@ -122,6 +95,7 @@ void callback_iobroker(String strTopic, String strPayload) {
       client.publish("myhome/Audio_Amplifier/vol_2", ToChar(strPayload));
     }
   }
+  //////////////////////////
   else if (strTopic == "myhome/Audio_Amplifier/vol_3") {
     int_Payload = strPayload.toInt();
     if (int_Payload >= 0 && int_Payload <= 255) {
@@ -130,6 +104,7 @@ void callback_iobroker(String strTopic, String strPayload) {
       client.publish("myhome/Audio_Amplifier/vol_3", ToChar(strPayload));
     }
   }
+  //////////////////////////
   else if (strTopic == "myhome/Audio_Amplifier/vol_4") {
     int_Payload = strPayload.toInt();
     if (int_Payload >= 0 && int_Payload <= 255) {
@@ -138,12 +113,44 @@ void callback_iobroker(String strTopic, String strPayload) {
       client.publish("myhome/Audio_Amplifier/vol_4", ToChar(strPayload));
     }
   }
+  //////////////////////////
   else if (strTopic == "myhome/Audio_Amplifier/vol_5") {
     int_Payload = strPayload.toInt();
     if (int_Payload >= 0 && int_Payload <= 255) {
       analogWrite(PIN_VOL_5, int_Payload);
       vol_5 = int_Payload;
       client.publish("myhome/Audio_Amplifier/vol_5", ToChar(strPayload));
+    }
+  }
+  ////////////////////////////////////////////////////
+  else if (strTopic == "myhome/Audio_Amplifier/save") {
+    if (strPayload == "true") {
+      Save();
+      client.publish("myhome/Audio_Amplifier/save", "false");
+    }
+  }
+  //////////////////////////
+  else if (strTopic == "myhome/Audio_Amplifier/shtd") {
+    if (strPayload == "true") {
+      digitalWrite(PIN_SHTD, true);
+      shtd = 1;
+      client.publish("myhome/Audio_Amplifier/shtd", "true");
+    } else {
+      digitalWrite(PIN_SHTD, false);
+      shtd = 0;
+      client.publish("myhome/Audio_Amplifier/shtd", "false");
+    }
+  }
+  //////////////////////////
+  else if (strTopic == "myhome/Audio_Amplifier/fade") {
+    if (strPayload == "true") {
+      digitalWrite(PIN_FADE, true);
+      fade = 1;
+      client.publish("myhome/Audio_Amplifier/fade", "true");
+    } else {
+      digitalWrite(PIN_FADE, false);
+      fade = 0;
+      client.publish("myhome/Audio_Amplifier/fade", "false");
     }
   }
 }
