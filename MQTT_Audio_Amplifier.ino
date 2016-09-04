@@ -87,6 +87,11 @@ void setup() {
   for (int i = 0 ; i <= n_DO_pin; i++) {
     pinMode (start_DO_pin [i], OUTPUT);
   }
+  digitalWrite(PIN_AMP_1, 1);
+  digitalWrite(PIN_AMP_2, 1);
+  digitalWrite(PIN_AMP_3, 1);
+  digitalWrite(PIN_AMP_4, 1);
+  digitalWrite(PIN_AMP_5, 1);
   analogWrite(PIN_VOL_1, vol_1);
   analogWrite(PIN_VOL_2, vol_2);
   analogWrite(PIN_VOL_3, vol_3);
