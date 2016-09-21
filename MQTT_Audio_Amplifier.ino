@@ -62,8 +62,8 @@ void PubTopic () {
   client.publish("myhome/Audio_Amplifier/vol_3", IntToChar(vol_3));
   client.publish("myhome/Audio_Amplifier/vol_4", IntToChar(vol_4));
   client.publish("myhome/Audio_Amplifier/vol_5", IntToChar(vol_5));
-  client.publish("myhome/Audio_Amplifier/fade", IntToChar(fade));
-  client.publish("myhome/Audio_Amplifier/shtd", IntToChar(shtd));
+  client.publish("myhome/Audio_Amplifier/fade", IntToBool(fade));
+  client.publish("myhome/Audio_Amplifier/shtd", IntToBool(shtd));
   client.publish("myhome/Audio_Amplifier/connection", "true");
 }
 ////////////////////////////////////////////////////////////////////////////
