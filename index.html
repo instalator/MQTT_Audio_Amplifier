@@ -34,34 +34,42 @@
           <h1>
 <a id="mqtt-audio-amplifier" class="anchor" href="#mqtt-audio-amplifier" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MQTT Audio Amplifier</h1>
 
-<hr>
-
 <p><a href="http://blog.instalator.ru/2016/07/%D0%B7%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9-%D1%83%D1%81%D0%B8%D0%BB%D0%B8%D1%82%D0%B5%D0%BB%D1%8C-%D0%B4%D0%BB%D1%8F-%D1%83%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B4%D0%BE%D0%BC%D0%B0-%D0%BD%D0%B0-%D0%B1%D0%B0/">Страница проекта</a></p>
+
+<p><img src="http://blog.instalator.ru/wp-content/uploads/photo-gallery/mza001/IMG_1445.JPG" alt="MZA-001 PAM8610."></p>
 
 <p>Зонный усилитель (5 стерео зон) управляемый через Ethernet по протоколу MQTT на базе микросхемы PAM8610 - усилитель D класса.</p>
 
 <h3>
 <a id="zone_x" class="anchor" href="#zone_x" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Zone_(x)</h3>
 
-<p>Включение/выключение усилителя в одной из 5 зон</p>
+<p>Включение/выключение усилителя в одной из 5 зон. Включение и выключение организовано через пин "Mute" микросхемы.</p>
 
 <h3>
 <a id="vol_x" class="anchor" href="#vol_x" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vol_(x)</h3>
 
-<p>Уровень громкости от 0 до 255</p>
+<p>Уровень громкости от 0 до 255. Используется регулировка на базе PAM8610 (32 ступени от -75дБ до +33дБ). 
+Для снижения шумов от наводок, рекомендуется уровень громкости &lt;= 100.</p>
 
 <h3>
 <a id="fade" class="anchor" href="#fade" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FADE</h3>
 
-<p>Плавное нарастание звука при включении</p>
+<p>Плавное нарастание звука при включении и при выводе из режима Shutdown.</p>
 
 <h3>
-<a id="shtd" class="anchor" href="#shtd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SHTD</h3>
+<a id="shtd-shutdown" class="anchor" href="#shtd-shutdown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SHTD (Shutdown)</h3>
 
-<p>отключение усилителей для экономии энергии</p>
+<p>отключение всех усилителей для экономии энергии.</p>
 
 <h2>
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h4>
+<a id="011" class="anchor" href="#011" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.1.1</h4>
+
+<ul>
+<li>(instalator) fix type Fade and SHTD (21.09.2016)</li>
+</ul>
 
 <h4>
 <a id="010" class="anchor" href="#010" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0.1.0</h4>
